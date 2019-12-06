@@ -3,17 +3,22 @@
 	padding: 0;
 }
 body {
-	background: #e9ecf4;
+	background: #ececec;
 	color: #000;
 }
 .contenedor {
 	width: 90%;
 	max-width: 1000px;
-	margin: 20 auto;
+	margin: 0 auto;
 	display: grid;
-	grid-gap: 20px;
+	grid-gap: 15px;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(4, auto);
+	grid-template-areas:
+		'header header header'
+		'contenido contenido sidebar'
+		'widget-1 widget-2 sidebar'
+		'footer footer footer';
 }
 .contenedor > section,
 .contenedor .header,
@@ -22,12 +27,75 @@ body {
 .contenedor .footer {
 	background: #fff;
 	padding: 15px;
-	border-radius: 4px;
+	border-radius: 3px;
 }
 .contenedor .header {
 	background: #1a4fb1;
 	color: #fff;
-	grid-column-start: 1;
-	grid-column-end: -1;
-	/* gird */
+	/* grid-column: 1/-1; */
+	grid-area: header;
+}
+
+.contenedor .contenido {
+	/* grid-column: span 2; */
+	grid-area: contenido;
+}
+.contenedor .widget-1,
+.contenedor .widget-2 {
+	background: #78b0f8;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100px;
+}
+.contenedor .widget-1 {
+	grid-area: widget-1;
+}
+.contenedor .widget-2 {
+	grid-area: widget-2;
+}
+.contenedor .sidebar {
+	/* grid-column: 3/4;
+	grid-row: span 2; */
+	background: #ffaa0e;
+	min-height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-area: sidebar;
+}
+
+.contenedor .footer {
+	/* grid-column: 1/-1; */
+	background: #1a4fb1;
+	color: #fff;
+	grid-area: footer;
+}
+
+@media screen and (max-width: 768px) {
+	.contenedor {
+		grid-template-areas:
+			'header header header'
+			'contenido contenido contenido'
+			'sidebar sidebar sidebar'
+			'widget-1 widget-2 widget-2'
+			'footer footer footer';
+	}
+	.contenedor .contenido {
+		/* grid-column: 1/-1; */
+		grid-area: contenido;
+	}
+	.contenedor .sidebar {
+		/* grid-column: 1/-1; */
+		grid-area: sidebar;
+	}
+	.contenedor .widget-1 {
+		/* grid-column: span 2; */
+		grid-area: widget-1;
+	}
+	.contenedor .widget-2 {
+		/* grid-column: span 2; */
+		grid-area: widget-2;
+	}
 }
