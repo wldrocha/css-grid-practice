@@ -6,3 +6,28 @@ body {
 	background: #e9ecf4;
 	color: #000;
 }
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	margin: 20 auto;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, auto);
+}
+.contenedor > section,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .sidebar,
+.contenedor .footer {
+	background: #fff;
+	padding: 15px;
+	border-radius: 4px;
+}
+.contenedor .header {
+	background: #1a4fb1;
+	color: #fff;
+	grid-column-start: 1;
+	grid-column-end: -1;
+	/* gird */
+}
