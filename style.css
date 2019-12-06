@@ -1,3 +1,4 @@
+/* las areas comentadas fueron sustituidas por template areas, que simplifica la forma de trabajar */
 * {
 	margin: 0;
 	padding: 0;
@@ -80,6 +81,34 @@ body {
 			'contenido contenido contenido'
 			'sidebar sidebar sidebar'
 			'widget-1 widget-2 widget-2'
+			'footer footer footer';
+	}
+	.contenedor .contenido {
+		/* grid-column: 1/-1; */
+		grid-area: contenido;
+	}
+	.contenedor .sidebar {
+		/* grid-column: 1/-1; */
+		grid-area: sidebar;
+	}
+	.contenedor .widget-1 {
+		/* grid-column: span 2; */
+		grid-area: widget-1;
+	}
+	.contenedor .widget-2 {
+		/* grid-column: span 2; */
+		grid-area: widget-2;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.contenedor {
+		grid-template-areas:
+			'header header header'
+			'contenido contenido contenido'
+			'sidebar sidebar sidebar'
+			'widget-1 widget-1 widget-1'
+			'widget-2 widget-2 widget-2'
 			'footer footer footer';
 	}
 	.contenedor .contenido {
